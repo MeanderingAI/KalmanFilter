@@ -12,16 +12,34 @@ FetchContent_Declare(
   BINARY_DIR ${CMAKE_BINARY_DIR}/eigen-build
 )
 FetchContent_MakeAvailable(Eigen)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+FetchContent_MakeAvailable(googletest)
+enable_testing()
 
 set(KALMAN_SOURCES
-    main.cpp
     src/kalman_filter.cpp
+    src/extended_kalman_filter.cpp
+    src/unscented_kalman_filter.cpp
 )
 
-add_executable(kalman_example ${KALMAN_SOURCES})
+set(EXECUTABLES
+  main.cpp
+  )
 
-target_link_libraries(kalman_example PRIVATE Eigen3::Eigen)
+add_library(kalman_filters SHARED ${KALMAN_SOURCES})
+target_link_libraries(kalman_filters PRIVATE Eigen3::Eigen)
+target_include_directories(kalman_filters PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
+add_executable(kalman_example ${EXECUTABLES})
+target_link_libraries(kalman_example PRIVATE kalman_filters Eigen3::Eigen)
 target_include_directories(kalman_example PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+add_executable(kalman_filter_tests test/test_kalman_filters.cpp)
+target_link_libraries(kalman_filter_tests PRIVATE kalman_filters Eigen3::Eigen gtest_main)
+target_include_directories(kalman_filter_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+add_test(NAME KalmanFilterTests COMMAND kalman_filter_tests)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

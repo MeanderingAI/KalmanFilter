@@ -2,8 +2,9 @@
 #define KALMAN_FILTER_H
 
 #include <Eigen/Dense>
+#include "base_kalman_filter.h"
 
-class KalmanFilter {
+class KalmanFilter : public BaseKalmanFilter {
 public:/**
      * @brief Constructor for the Kalman Filter.
      * @param dt Time step (e.g., in seconds).
@@ -29,18 +30,24 @@ public:/**
     /**
      * @brief Predicts the next state.
      */
-    void predict();
+    void predict() override;
 
     /**
      * @brief Updates the state with a new measurement.
      * @param y Measurement vector.
      */
-    void update(const Eigen::VectorXd& y);
+    void update(const Eigen::VectorXd& y) override;
 
     /**
      * @brief Returns the current state estimate.
      */
-    Eigen::VectorXd state() const;
+    const Eigen::VectorXd& state() const override;
+
+
+    /**
+     * @brief Returns the current state estimate.
+     */
+    const Eigen::MatrixXd& covariance() const override;
 private:
     // Time step
     double dt;

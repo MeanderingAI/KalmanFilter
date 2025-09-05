@@ -1,5 +1,7 @@
-#include "kalman_filter.h"
+
+#include <Eigen/Dense>
 #include <iostream>
+#include "kalman_filter.h"
 
 // The constructor initializes the filter's matrices
 KalmanFilter::KalmanFilter(double dt,
@@ -39,6 +41,10 @@ void KalmanFilter::update(const Eigen::VectorXd& y) {
 }
 
 // Get the current state estimate
-Eigen::VectorXd KalmanFilter::state() const {
+const Eigen::VectorXd& KalmanFilter::state() const {
     return x;
+}
+
+const Eigen::MatrixXd& KalmanFilter::covariance() const {
+    return P;
 }
