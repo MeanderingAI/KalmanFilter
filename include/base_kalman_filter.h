@@ -2,24 +2,14 @@
 #define BASE_KALMAN_FILTER_H
 
 #include <Eigen/Dense>
+#include "base_filter.h"
 
 /**
  * @brief Abstract base class for Kalman filter variants.
  */
-class BaseKalmanFilter {
+class BaseKalmanFilter : public BaseFilter {
 public:
     virtual ~BaseKalmanFilter() = default;
-
-    /**
-     * @brief Predicts the next state.
-     */
-    virtual void predict() = 0;
-
-    /**
-     * @brief Updates the state with a new measurement.
-     * @param z Measurement vector.
-     */
-    virtual void update(const Eigen::VectorXd& z) = 0;
 
     /**
      * @brief Returns the current state estimate.
