@@ -1,14 +1,47 @@
 enable_testing()
 
-set(TEST_SOURCES
+set(FILTER_SOURCES
     test_extended_kalman_filter.cpp
     test_kalman_filter.cpp
-    test_particle_filter.cpp
+    test_sequential_monte_carlo.cpp
     test_unscented_kalman_filter.cpp
 )
-
-add_executable(kalman_filter_tests ${TEST_SOURCES})
-target_link_libraries(kalman_filter_tests PRIVATE kalman_filters Eigen3::Eigen gtest_main)
+add_executable(kalman_filter_tests ${FILTER_SOURCES})
+target_link_libraries(kalman_filter_tests PRIVATE filters Eigen3::Eigen gtest_main)
 target_include_directories(kalman_filter_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
-
 add_test(NAME KalmanFilterTests COMMAND kalman_filter_tests)
+
+set(HMM_SOURCES
+    test_hidden_markov_model.cpp
+)
+add_executable(hmm_tests ${HMM_SOURCES})
+target_link_libraries(hmm_tests PRIVATE hidden_markov_model Eigen3::Eigen gtest_main)
+target_include_directories(hmm_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME HMMTests COMMAND hmm_tests)
+
+set(BAYESIAN_NETWORK_SOURCES
+    test_baysian_network.cpp
+)
+add_executable(bayesian_network_tests ${BAYESIAN_NETWORK_SOURCES})
+target_link_libraries(bayesian_network_tests PRIVATE bayesian_network Eigen3::Eigen gtest_main)
+target_include_directories(bayesian_network_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME BayesianNetworkTests COMMAND bayesian_network_tests)
+
+set(TREE_SOURCES
+    test_decision_tree.cpp
+    test_rule_set.cpp
+    test_random_forest.cpp
+    test_boost_tree.cpp
+)
+add_executable(decision_tree_tests ${TREE_SOURCES})
+target_link_libraries(decision_tree_tests PRIVATE decision_tree Eigen3::Eigen gtest_main)
+target_include_directories(decision_tree_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME DecisionTreeTests COMMAND decision_tree_tests)
+
+set(GLM_SOURCES
+    test_linear_regression.cpp
+)
+add_executable(glm_tests ${GLM_SOURCES})
+target_link_libraries(glm_tests PRIVATE generalized_linear_model Eigen3::Eigen gtest_main)
+target_include_directories(glm_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME GLMTests COMMAND glm_tests)

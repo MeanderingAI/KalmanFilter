@@ -11,9 +11,9 @@ struct Particle {
     double weight;
 };
 
-class ParticleFilter : public BaseFilter {
+class SequentialMonteCarlo : public BaseFilter {
 public:
-    ParticleFilter(int num_particles);
+    SequentialMonteCarlo(int num_particles);
 
     // Implements BaseFilter interface
     void predict() override;
