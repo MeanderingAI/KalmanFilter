@@ -6,10 +6,10 @@ set(FILTER_SOURCES
     test_sequential_monte_carlo.cpp
     test_unscented_kalman_filter.cpp
 )
-add_executable(kalman_filter_tests ${FILTER_SOURCES})
-target_link_libraries(kalman_filter_tests PRIVATE filters Eigen3::Eigen gtest_main)
-target_include_directories(kalman_filter_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
-add_test(NAME KalmanFilterTests COMMAND kalman_filter_tests)
+add_executable(filter_tests ${FILTER_SOURCES})
+target_link_libraries(filter_tests PRIVATE filter Eigen3::Eigen gtest_main)
+target_include_directories(filter_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME FilterTests COMMAND filter_tests)
 
 set(HMM_SOURCES
     test_hidden_markov_model.cpp
@@ -45,3 +45,11 @@ add_executable(glm_tests ${GLM_SOURCES})
 target_link_libraries(glm_tests PRIVATE generalized_linear_model Eigen3::Eigen gtest_main)
 target_include_directories(glm_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
 add_test(NAME GLMTests COMMAND glm_tests)
+
+set(DISTRIBUTION_SOURCES
+    test_distribution.cpp
+)
+add_executable(distribution_tests ${DISTRIBUTION_SOURCES})
+target_link_libraries(distribution_tests PRIVATE probability_distribution Eigen3::Eigen gtest_main)
+target_include_directories(distribution_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME DistributionTests COMMAND distribution_tests)
