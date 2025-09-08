@@ -4,10 +4,12 @@ add_library(probability_distribution SHARED
     binomial_distribution.cpp
     categorical_distribution.cpp
     discrete_distribution.cpp
+    distribution_type.cpp
     exponential_distribution.cpp
     gamma_distribution.cpp
     inverse_gaussian_distribution.cpp
     laplace_distribution.cpp
+    multinomial_distribution.cpp
     normal_distribution.cpp
     poisson_distribution.cpp
     categorical_distribution.cpp

@@ -22,7 +22,7 @@ public:
     double log_pdf(double x) const override { return -std::numeric_limits<double>::infinity(); }
     double cdf(double x) const override { return 0.0; }
     double log_cdf(double x) const override { return -std::numeric_limits<double>::infinity(); }
-    double sample() override; // Samples a single outcome
+    int sample_discrete() override; // Samples a single outcome from one trial
     std::vector<int> sample_multinomial(); // Samples a vector of outcomes
 
     // GLM functions are not applicable.

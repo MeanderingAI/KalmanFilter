@@ -1,7 +1,8 @@
-#include <Command.hpp>
+#include <text_user_interface/Command.hpp>
 #include <iostream>
 #include <map>
 #include <string>
+
 
 std::map<std::string, Command> commandRegistry;
 
@@ -25,7 +26,7 @@ REGISTER_COMMAND(help, "Lists all available commands.", [](const std::vector<std
     }
 });
 
-REGISTER_COMMAND(exit, "Exits the application.", [](const std::vector<std::string>& args) {
+REGISTER_COMMAND(quit, "Exits the application.", [](const std::vector<std::string>& args) {
     // This lambda will simply print a message, the main loop handles the actual exit.
     std::cout << "Exiting..." << std::endl;
 });

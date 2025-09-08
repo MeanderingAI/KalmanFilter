@@ -1,5 +1,5 @@
-#include "Terminal.h"
-#include "Command.hpp"
+#include <text_user_interface/Terminal.h>
+#include <text_user_interface/Command.hpp>
 #include <sstream>
 #include <iterator>
 #include <iostream>
@@ -14,9 +14,9 @@ int main() {
     term.print("Welcome to the TUI. Type 'help' to get started.");
 
     while (true) {
-        term.setCursorPosition(3, 1);
-        term.print(">");
-        term.setCursorPosition(3, 3);
+        //term.setCursorPosition(3, 1);
+        //term.print(">");
+        //term.setCursorPosition(3, 3);
 
         std::string line = term.readLine();
 
@@ -32,12 +32,18 @@ int main() {
         std::string commandName = parts[0];
         parts.erase(parts.begin());
 
-        if (commandName == "exit") {
+        if (commandName == "quit") {
             break;
         }
 
+
+        // --- Clear the screen after command is submitted ---
+        term.clearScreen();
+
         term.print("\n\r");
         if (commandRegistry.count(commandName)) {
+            // Print the command that was run
+            term.print(commandName + "\n");
             commandRegistry[commandName].action(parts);
         } else {
             term.print("Unknown command: " + commandName);

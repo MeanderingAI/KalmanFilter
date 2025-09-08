@@ -68,9 +68,9 @@ double MultinomialDistribution::pdf(const std::vector<int>& counts) const {
 }
 
 // The base class methods that are not meaningful for this distribution are implemented below.
-double MultinomialDistribution::sample() {
-    // This samples a single outcome from one trial and returns it as a double.
-    return static_cast<double>(dist_(gen_));
+int MultinomialDistribution::sample_discrete() {
+    // This samples a single outcome from one trial and returns it as an int.
+    return dist_(gen_);
 }
 
 // Generates a vector of outcomes from the multinomial distribution.
