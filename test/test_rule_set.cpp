@@ -1,6 +1,6 @@
-#include "gtest/gtest.h"
-#include "decision_tree.h"
-#include "rule_set.h"
+#include <gtest/gtest.h>
+#include <decision_tree.h>
+#include <rule_set.h>
 #include <vector>
 #include <map>
 #include <string>

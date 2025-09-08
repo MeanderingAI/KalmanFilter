@@ -6,10 +6,10 @@ set(FILTER_SOURCES
     test_sequential_monte_carlo.cpp
     test_unscented_kalman_filter.cpp
 )
-add_executable(filter_tests ${FILTER_SOURCES})
-target_link_libraries(filter_tests PRIVATE filter Eigen3::Eigen gtest_main)
-target_include_directories(filter_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
-add_test(NAME FilterTests COMMAND filter_tests)
+add_executable(tracker_tests ${FILTER_SOURCES})
+target_link_libraries(tracker_tests PRIVATE tracker Eigen3::Eigen gtest_main)
+target_include_directories(tracker_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME TrackerTests COMMAND tracker_tests)
 
 set(HMM_SOURCES
     test_hidden_markov_model.cpp
