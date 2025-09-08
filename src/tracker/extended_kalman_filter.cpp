@@ -1,6 +1,6 @@
 
 #include <functional>
-#include "extended_kalman_filter.h"
+#include <extended_kalman_filter.h>
 
 ExtendedKalmanFilter::ExtendedKalmanFilter(
     const Eigen::VectorXd& x0,

@@ -1,7 +1,7 @@
 
 #include <Eigen/Dense>
 #include <iostream>
-#include "kalman_filter.h"
+#include <kalman_filter.h>
 
 // The constructor initializes the filter's matrices
 KalmanFilter::KalmanFilter(double dt,

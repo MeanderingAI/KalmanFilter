@@ -2,7 +2,7 @@
 #include <iostream>
 #include <numeric>
 
-#include "decision_tree.h"
+#include <decision_tree.h>
 
 // Test fixtures for common setup (optional but good practice)
 class DecisionTreeTest : public ::testing::Test {

@@ -1,7 +1,8 @@
-#include "bayesian_network.h"
+
 #include <iostream>
 #include <numeric>
 #include <algorithm>
+#include <bayesian_network.h>
 
 // Constructor
 BayesianNetwork::BayesianNetwork() {}
