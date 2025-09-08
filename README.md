@@ -32,3 +32,46 @@ With the following variations;
 1. Rule Set
 2. Random Forest
 3. Boosted Trees
+
+## Statistical Distributions
+
+Here we provide the following Standard Statistical Distributions;
+
+1. Bernoulli Distribution
+2. Binomial Distribution
+3. Categorical Distribution
+4. Exponential Distribution
+5. Gamma Distribution
+6. Inverse Gaussian Distribution
+7. Laplace Distribution
+8. Multinomial Distribution
+9. Normal Distribution
+10. Poisson Distribution
+
+These distributions have implementations of pdf, log_pdf, cdf, log_cdf, and sampling.
+
+# Dependencies
+
+## GSL
+
+This library uses libgsl, on ubuntu it can be installed with
+
+```
+sudo apt install libgsl-dev
+```
+
+## Eigen
+
+This library is automatically installed by cmake during compilation
+
+## GoogleTest
+
+This library is automatically installed by cmake during compilation
+
+# Compiling
+
+use the `./clean&build` script.
+
+Generated libraries can be found in;
+
+`build/src/lib*.so`

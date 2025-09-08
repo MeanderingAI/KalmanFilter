@@ -1,11 +1,11 @@
-add_library(filters SHARED
+add_library(filter SHARED
     kalman_filter.cpp
     extended_kalman_filter.cpp
     unscented_kalman_filter.cpp
     sequential_monte_carlo.cpp
 )
-target_link_libraries(filters PRIVATE Eigen3::Eigen)
-target_include_directories(filters PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(filter PRIVATE Eigen3::Eigen)
+target_include_directories(filter PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
 add_library(hidden_markov_model SHARED 
     hidden_markov_model.cpp
@@ -35,3 +35,5 @@ add_library(generalized_linear_model SHARED
 )
 target_link_libraries(generalized_linear_model PRIVATE Eigen3::Eigen)
 target_include_directories(generalized_linear_model PUBLIC ${CMAKE_SOURCE_DIR}/include)
+
+add_subdirectory(distribution)
