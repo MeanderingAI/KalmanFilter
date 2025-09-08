@@ -11,4 +11,6 @@ add_executable(tui main.cpp)
 add_subdirectory(src)
 add_subdirectory(test)
 
+target_link_libraries(tui PRIVATE text_user_interface)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
