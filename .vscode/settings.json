@@ -101,6 +101,7 @@
         "__tree": "cpp",
         "csignal": "cpp",
         "shared_mutex": "cpp",
-        "cfenv": "cpp"
+        "cfenv": "cpp",
+        "__locale": "cpp"
     }
 }

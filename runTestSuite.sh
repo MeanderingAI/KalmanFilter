@@ -5,3 +5,4 @@
 ./build/test/glm_tests
 ./build/test/hmm_tests
 ./build/test/tracker_tests
+./build/test/mab_tests

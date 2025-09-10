@@ -53,3 +53,11 @@ add_executable(distribution_tests ${DISTRIBUTION_SOURCES})
 target_link_libraries(distribution_tests PRIVATE probability_distribution Eigen3::Eigen gtest_main)
 target_include_directories(distribution_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
 add_test(NAME DistributionTests COMMAND distribution_tests)
+
+set(MAB_SOURCES
+    test_multi_arm_bandit.cpp
+)
+add_executable(mab_tests ${MAB_SOURCES})
+target_link_libraries(mab_tests PRIVATE multi_arm_bandit Eigen3::Eigen gtest_main)
+target_include_directories(mab_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_test(NAME MABTests COMMAND mab_tests)
