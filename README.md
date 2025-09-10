@@ -50,6 +50,13 @@ Here we provide the following Standard Statistical Distributions;
 
 These distributions have implementations of pdf, log_pdf, cdf, log_cdf, and sampling.
 
+## Multi-Arm Bandit
+
+Here we provide the following multi-arm bandit implementations;
+
+1. Epsilon Greedy Agent
+2. Upper Confidence Bound Agent 
+
 # Dependencies
 
 ## GSL
