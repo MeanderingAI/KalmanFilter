@@ -61,3 +61,11 @@ add_executable(mab_tests ${MAB_SOURCES})
 target_link_libraries(mab_tests PRIVATE multi_arm_bandit Eigen3::Eigen gtest_main)
 target_include_directories(mab_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
 add_test(NAME MABTests COMMAND mab_tests)
+
+set(SVM_SOURCES
+    test_support_vector_machine.cpp
+)
+add_executable(svm_tests ${SVM_SOURCES})
+target_link_libraries(svm_tests PRIVATE support_vector_machine Eigen3::Eigen gtest_main)
+target_include_directories(svm_tests PRIVATE ${CMAKE_SOURCE_DIR}/include/support_vector_machine)
+add_test(NAME SVMTests COMMAND svm_tests)

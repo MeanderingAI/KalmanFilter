@@ -55,7 +55,18 @@ These distributions have implementations of pdf, log_pdf, cdf, log_cdf, and samp
 Here we provide the following multi-arm bandit implementations;
 
 1. Epsilon Greedy Agent
-2. Upper Confidence Bound Agent 
+2. Decaying Epsilon Greedy Agent
+3. Upper Confidence Bound Agent 
+4. Thompson Sampling Agent
+
+## Support Vector Machine
+
+Here we provide implementation of support vector machines with the following kernels;
+
+1. Linear
+2. Polynomial
+3. Gaussian 
+4. Sigmoid
 
 # Dependencies
 
