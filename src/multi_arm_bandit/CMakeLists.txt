@@ -1,6 +1,8 @@
 add_library(multi_arm_bandit SHARED 
     epsilon_greedy_agent.cpp
     ucb_agent.cpp
+    decaying_epsilon_agent.cpp
+    thompson_sampling_agent.cpp
     bandit_arm.cpp
     bandit_agent.cpp
     simulation_result.cpp
